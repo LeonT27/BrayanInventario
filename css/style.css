@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "Ailerons";
+    src: url(../fonts/Ailerons-Typeface.otf) format('opentype');
+}
+html, body {
+    color: #2f2f2f;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    font-family: 'Roboto Condensed', 'Arial', sans-serif;
+}
+
+header {
+    background-size: cover;
+    background-color: #ecf0f1;
+    height: 100vh;
+}
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: "Ailerons", 'Arial', sans-serif;
+    font-weight: 100;
+}
+
+h2 {
+    text-align: center;
+    font-size: 250%;
+}
+.thu-real {
+    font-weight: 100;
+    text-align: center;
+    margin: 0;
+    font-size: 500%;
+    border-bottom: 2px solid #e67e22;
+    clear: right;
+}
+
+.center-line {
+    text-align: center;
+}
+
+
+.ali {
+    font-family: "Ailerons", 'Arial', sans-serif;
+    font-size: 150%;
+}
+
+.btn-login {
+    display: block;
+    border-radius: 16px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #e67e22;
+    color: white;
+    margin-bottom: 0px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.logout:link, .logout:visited {
+    text-align: center;
+    float: right;
+    position: relative;
+    top: -90px;
+    right: 120px;
+    width: 5%;
+    border-radius: 16px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #e67e22;
+    color: white;
+    margin-bottom: 0px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.logout:hover, .logout:active {
+    background-color: #d35400;
+}
+
+.login-form {
+    width: 30%;
+    margin: 60px auto;
+    padding: 16px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background-color: #bdc3c7;
+    box-shadow: 5px 5px 2px #a2a2a2;
+}
+
+input, select {
+    margin-bottom: 15px;
+    padding-left: 12px;
+    border-radius: 16px;
+    border: none;
+}
+
+input[type=submit]:hover, input[type=submit]:active {
+    background-color: #d35400;
+}
+
+.msg {
+    margin: auto;
+    margin-top: 75px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background: #555;
+    color: #fff;
+    text-align: center;
+}
+
+.msg span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.msg-error {
+    background-color: #b23528;
+    width: 50%;
+}
+
+.visi {
+    visibility: hidden;
+}
+
+nav {
+    background-color: #bdc3c7;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 16px;
+    width: 75%;
+    margin: 20px auto;
+    margin-bottom: 80px;
+    
+}
+
+li {
+    display: inline-block;
+    text-decoration: none;
+    padding-right: 30px;
+    font-size: 120%;
+}
+
+li a:link, li a:visited {
+    text-decoration: none;
+    color: #2f2f2f;
+    transition: border-bottom 0.09s;
+}
+
+li a:hover, li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+.dataTables_filter input {
+    border: 1px solid #2f2f2f;
+}
+
+*:focus {outline: none;}
+
+.boton-a{
+    text-align: center;
+    float: right;
+    position: relative;
+    top: -50px;
+    right: 150px;
+    width: 1%;
+    border-radius: 16px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #e67e22;
+    color: white;
+    margin-bottom: 0px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
