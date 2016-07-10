@@ -93,21 +93,17 @@ class CRUD
                 $controlador = 'TipoInventario';
                 $str = 'ID_TipoInventario';
                 break;
-            case 'Articulos':
-                $controlador = 'TipoInventario';
+            case '[dbo].[SELECT_Articulos]':
+                $controlador = 'Articulos';
                 $str = 'ID_Articulos';
                 break;
-            case 'Almacen':
-                $controlador = 'TipoInventario';
+            case '[dbo].[SELECT_Almacenes]':
+                $controlador = 'Almacenes';
                 $str = 'ID_Almacen';
                 break;
-            case 'Transacion':
-                $controlador = 'TipoInventario';
+            case '[dbo].[SELECT_Transacion]':
+                $controlador = 'Transacion';
                 $str = 'ID_Transacion';
-                break;
-            case 2:
-                $controlador = 'TipoInventario';
-                $str = 'ID_TipoInventario';
                 break;
         }
 

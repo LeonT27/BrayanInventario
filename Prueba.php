@@ -21,25 +21,14 @@
     <body>
         <?php
             echo "<div ><table id='table' class='display'> <thead> <tr>";
-        $SP_Ver = "EXEC [dbo].[SELECT_TipoInventario]";
+        $SP_Ver = "EXEC [dbo].[SELECT_Transacion]";
         $resultado = sqlsrv_query( $connEsta, $SP_Ver);
-        if ($resultado) {
-            $metaData = sqlsrv_field_metadata($resultado);
-            for ($i = 0; $i < count($metaData); $i++) {
-                echo "<th>".$metaData[$i]["Name"] . "</th>";
-            }
-            echo "<th>&nbsp;</th>";
-            echo "</tr> </thead>";
-            echo "<tbody> <tr>";
-            while ($datos = sqlsrv_fetch_object( $resultado)) { //WHILE para los datos de las columnas //fetch_object Retorna los datos de una fila
+        
+
+        while ($datos = sqlsrv_fetch_array( $resultado)) { //WHILE para los datos de las columnas //fetch_object Retorna los datos de una fila
                 foreach($datos as $dato){
-                    echo "<td>".$dato."</td>";
+                    echo $dato;
                 }
-                $str = 'ID_TipoInventario';
-                echo "<td><a href='/Controlador.php?ID=".$datos->$str."'>Modificar</a></td>";
-                echo "</tr> ";
-            }
-            echo "</tbody> </table>  </div>";
         }
         ?>
     </body>

@@ -48,8 +48,7 @@ if(empty($_SESSION['login_user']))
                     </ul>
                 </nav>
             </div>
-            <img alt="YO NO SE" src="bob.jpg"/>
-            <?php //$crud->VerTabla('[dbo].[SELECT_TipoInventario]'); ?>
+            <?php $crud->VerTabla('[dbo].[SELECT_Transacion]'); ?>
             <a class="boton-a" href="Agregar-TipoInventario.php">+</a>
         </header>
     </body>
