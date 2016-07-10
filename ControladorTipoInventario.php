@@ -1,5 +1,11 @@
 <?php
+    session_start();
     include 'Crud.php';
+
+    if(empty($_SESSION['login_user']))
+    {
+        header("location: index.php");
+    }
     $crud = new CRUD();
 
     if(!empty($_POST['add']))
