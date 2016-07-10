@@ -29,7 +29,7 @@ if(!empty($_SESSION['login_user']))
     <body>
         <header>
             <div class="row">
-                <h1 class="thu-real">Thu real inventario</h1>
+                <h1 class="thu-real">Thu real inventario 1</h1>
             </div>
             <div class="row">
                 <div class="msg msg-error visi">
