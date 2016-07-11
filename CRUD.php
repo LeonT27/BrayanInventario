@@ -13,6 +13,85 @@ class CRUD
         $this->connEsta = $this->conn->EstablecerConexion();
     }
 
+    function Borrar_Articulo($ID)
+   {
+       $SP_Borrar = "EXEC	[dbo].[ELinar_Articulos]
+		                @ID = ?";
+       $array = array( array(&$ID) );
+       $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Borrar, $array);
+
+       if( !$stmt1 ) {
+            echo 'Error in executing statement .\n';
+            die( print_r( sqlsrv_errors(), true));
+        }
+
+        $stmt = sqlsrv_execute( $stmt1 );
+
+        if( $stmt == FALSE )  
+        {
+             echo "Error in executing statement .\n";  
+             die( print_r( sqlsrv_errors(), true));  
+        }
+   }
+
+    function Modificar_Articulo($ID, $descripcion, $existencia, $id_tipoinventario, $costo, $estado)
+    {
+        $SP_Insertar = "EXEC	[dbo].[Modificar_Articulos]
+		                        @ID = ?,
+		                        @Descripcion = ?,
+		                        @Existencias = ?,
+		                        @ID_TipoInventario = ?,
+		                        @Costo_Unitario = ?,
+		                        @Estado = ?";
+        $array = array(
+                        array(&$ID), 
+                        array(&$descripcion),  
+                        array(&$existencia),
+                        array(&$id_tipoinventario),
+                        array(&$costo),
+                        array(&$estado)
+                      );
+        $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Insertar, $array);
+        if( !$stmt1 ) {
+            echo 'Error in executing statement .\n';
+            die( print_r( sqlsrv_errors(), true));
+        }
+        $stmt = sqlsrv_execute( $stmt1 );
+        if( $stmt == FALSE )  
+        {
+             echo "Error in executing statement .\n";  
+             die( print_r( sqlsrv_errors(), true));  
+        }
+   }
+
+    function Insert_Articulo($descripcion, $existencia, $id_tipoinventario, $costo, $estado)
+    {
+        $SP_Insertar = "EXEC	[dbo].[Insert_Articulos]
+		                        @Descripcion = ?,
+		                        @Existencias = ?,
+		                        @ID_TipoInventario = ?,
+		                        @Costo_Unitario = ?,
+		                        @Estado = ?";
+        $array = array(
+                        array(&$descripcion),  
+                        array(&$existencia),
+                        array(&$id_tipoinventario),
+                        array(&$costo),
+                        array(&$estado)
+                      );
+        $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Insertar, $array);
+        if( !$stmt1 ) {
+            echo 'Error in executing statement .\n';
+            die( print_r( sqlsrv_errors(), true));
+        }
+        $stmt = sqlsrv_execute( $stmt1 );
+        if( $stmt == FALSE )  
+        {
+             echo "Error in executing statement .\n";  
+             die( print_r( sqlsrv_errors(), true));  
+        }
+   }
+
     function Insert_Tipo_Inventario($descripcion, $cuenta, $estado)
     {
         $SP_Insertar = "EXEC	[dbo].[Insert_TipoInventario]
