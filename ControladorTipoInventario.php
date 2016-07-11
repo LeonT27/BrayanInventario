@@ -14,8 +14,11 @@
         {
             $crud->Insert_Tipo_Inventario($_POST['descripcion'],$_POST['cuenta'],$_POST['estado']);
             empty($_POST['add']);
-            echo 'Agregando';
-            header("location: Ver-TipoInventario.php");
+        }
+        else
+        {
+            $_SESSION['Error'] = ' al dejar los campos vacios.';
+            header("location: Agregar-TipoInventario.php");
         }
     }
 
@@ -29,9 +32,12 @@
       if(!empty($_POST['descripcion']) && !empty($_POST['cuenta']) && !empty($_POST['ID']))
         {
             $crud->Modificar_Tipo_Inventario($_POST['ID'], $_POST['descripcion'], $_POST['cuenta'], $_POST['estado']);
-            echo 'Modicando';
-            header("location: Ver-TipoInventario.php");
-        }  
+        }
+        else
+        {
+            $_SESSION['Error'] = ' al dejar los campos vacios.';
+            header("location: Modificar-TipoInventario.php?ID=".$_POST['ID']."");
+        }
     }
 
     if(!empty($_GET['Eliminar']))

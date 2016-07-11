@@ -1,5 +1,11 @@
 <?php
-    include 'CRUD.php';
+    session_start();
+    include 'Crud.php';
+
+    if(empty($_SESSION['login_user']))
+    {
+        header("location: index.php");
+    }
     $conn = new CRUD();
     $ID1=$_GET['ID'];
     $tabla = "Tipos_Inventarios";
@@ -23,6 +29,9 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="/js/scrit.js"></script>
+        <script>
+            visiToggle('false');
+        </script>
     </head>
     <body>
         <header>
@@ -74,5 +83,16 @@
                 </form>
             </div>
         </header>
+        <?php
+            if(!empty($_SESSION['Error']))
+            {
+        ?>
+        <script>
+            visiToggle('true');
+        </script>
+        <?php
+            } 
+            unset($_SESSION['Error']);  
+        ?>
     </body>
 </html>

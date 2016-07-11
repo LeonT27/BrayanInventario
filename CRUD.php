@@ -53,14 +53,18 @@ class CRUD
                       );
         $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Insertar, $array);
         if( !$stmt1 ) {
-            echo 'Error in executing statement .\n';
-            die( print_r( sqlsrv_errors(), true));
+            $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+            header("location: Modificar-TipoInventario.php?ID=$ID"); 
         }
         $stmt = sqlsrv_execute( $stmt1 );
         if( $stmt == FALSE )  
         {
-             echo "Error in executing statement .\n";  
-             die( print_r( sqlsrv_errors(), true));  
+             $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+            header("location: Modificar-TipoInventario.php?ID=$ID");   
+        }
+        else
+        {
+            //a donde va cuando sale exitoso
         }
    }
 
@@ -80,15 +84,20 @@ class CRUD
                         array(&$estado)
                       );
         $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Insertar, $array);
-        if( !$stmt1 ) {
-            echo 'Error in executing statement .\n';
-            die( print_r( sqlsrv_errors(), true));
+        if( !$stmt1 ) 
+        {
+            $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+            header("location: Agregar-TipoInventario.php");
         }
         $stmt = sqlsrv_execute( $stmt1 );
         if( $stmt == FALSE )  
         {
-             echo "Error in executing statement .\n";  
-             die( print_r( sqlsrv_errors(), true));  
+             $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+             header("location: Agregar-TipoInventario.php");
+        }
+        else
+        {
+            //a donde va cuando sale exitoso
         }
    }
 
@@ -105,14 +114,18 @@ class CRUD
                       );
         $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Insertar, $array);
         if( !$stmt1 ) {
-            echo 'Error in executing statement .\n';
-            die( print_r( sqlsrv_errors(), true));
+            $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+             header("location: Agregar-TipoInventario.php");
         }
         $stmt = sqlsrv_execute( $stmt1 );
         if( $stmt == FALSE )  
         {
-             echo "Error in executing statement .\n";  
-             die( print_r( sqlsrv_errors(), true));  
+             $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+             header("location: Agregar-TipoInventario.php");  
+        }
+        else
+        {
+            header("location: Ver-TipoInventario.php");
         }
    }
 
@@ -153,16 +166,20 @@ class CRUD
        $stmt1 = sqlsrv_prepare( $this->connEsta, $SP_Modificar, $array);
 
        if( !$stmt1 ) {
-            echo 'Error in executing statement .\n';
-            die( print_r( sqlsrv_errors(), true));
+            $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+            header("location: Modificar-TipoInventario.php?ID=$ID"); 
         }
 
         $stmt = sqlsrv_execute( $stmt1 );
 
         if( $stmt == FALSE )  
         {
-             echo "Error in executing statement .\n";  
-             die( print_r( sqlsrv_errors(), true));  
+             $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
+             header("location: Modificar-TipoInventario.php?ID=$ID");  
+        }
+        else
+        {
+            header("location: Ver-TipoInventario.php");
         }
    }
 
@@ -218,7 +235,7 @@ class CRUD
         $SP_Ver = "SELECT * FROM $tabla WHERE $id";
         $resultado = sqlsrv_query( $this->connEsta, $SP_Ver);
         if(!$resultado){
-            echo 'dimelo mmg';
+            echo 'No cargo';
         }
         $datos = sqlsrv_fetch_object( $resultado);
         return $datos;

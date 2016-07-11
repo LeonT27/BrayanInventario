@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(empty($_SESSION['login_user']))
+{
+    header("location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,6 +21,9 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="/js/scrit.js"></script>
+        <script>
+            visiToggle('false');
+        </script>
     </head>
     <body>
         <header>
@@ -64,5 +74,16 @@
                 </form>
             </div>
         </header>
+        <?php
+            if(!empty($_SESSION['Error']))
+            {
+        ?>
+        <script>
+            visiToggle('true');
+        </script>
+        <?php
+            } 
+            unset($_SESSION['Error']);  
+        ?>
     </body>
 </html>
