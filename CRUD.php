@@ -7,7 +7,7 @@ class CRUD
     var $conn;
     var $connEsta;
 
-    function CRUD( )
+    function __construct( )
     {  
         $this->conn = new Conexion();
         $this->connEsta = $this->conn->EstablecerConexion();
