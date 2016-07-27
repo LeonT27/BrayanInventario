@@ -11,19 +11,21 @@
             $metodo = $request->metodo;
             //print $metodo;
             $argumento = $request->argumento;
-
+            //print $argumento;
             if(is_readable($ruta))
             {
                 require_once $ruta;
                 $mostar = "Control\\" . $controlador;
                 $controlador = new $mostar;
-                if(!isset($argumento))
+                if(empty($argumento))
                 {
-                    call_user_func(array($controlador, $metodo));
+                    //print "Sin argumento";
+                    $datos = call_user_func(array($controlador, $metodo));
                 }
                 else
                 {
-                    call_user_func_array(array($controlador, $metodo), $argumento);
+                    //print "Con argumento";
+                    $datos = call_user_func_array(array($controlador, $metodo), $argumento);
                 }
             }
 

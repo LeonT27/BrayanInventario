@@ -8,7 +8,7 @@
 
         public function __construct()
         {
-            $this->conexion = new Conexion();
+            $this->conexion = new Conexion;
         }
         
         public function __get($atributo)
@@ -19,18 +19,33 @@
         public function __set($atributo, $dato)
         {
             $this->$atributo = $dato;
-            return $this->$atributo;
         }
 
-        public function __invoke()
+        public function validar()
         {
             $query = "SELECT Usuario FROM [IDInventario].[dbo].[LOGIN] WHERE Usuario = ? AND Password = ? ";
+            print $query;
             $array = array(
-                    array(&$this->user),  
-                    array(&$this->pass)
-                  );
-            $stmt = sqlsrv_query($this->conexion, $query, $array);
+                    array($this->user),  
+                    array($this->pass)
+                    );
+            $stmt = sqlsrv_query($this->conexion->getConn(), $query, $array);
+            if($stmt)
+            {
+                echo "SI";
+            }
+            else
+            {
+                echo "NO ".print_r( sqlsrv_errors(), true);
+            }
             return $stmt;
+        }
+
+        public function logout()
+        {
+            if(session_destroy()) {
+                header("Location: /login/");
+            }
         }
     }
 

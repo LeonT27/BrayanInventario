@@ -23,7 +23,6 @@
         public function __set($atributo, $dato)
         {
             $this->$atributo = $dato;
-            return $this->$atributo;
         }
 
         public function insertar()
@@ -71,7 +70,7 @@
             $this->conexion($query, $array, $salida_Mala, $salida_Buena);
         }
 
-        public function borrar()
+        public function borrar($ID)
         {
             $query = "EXEC	[dbo].[ELinar_Articulos]
 		                @ID = ?";
@@ -80,6 +79,11 @@
             $salida_Buena = "Ver-Articulo";
 
             $this->conexion($query, $array, $salida_Mala, $salida_Buena);
+        }
+
+        public function ver()
+        {
+            $this->conexion->ver_Tabla('[dbo].[SELECT_Articulos]');
         }
     }
 

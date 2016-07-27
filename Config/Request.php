@@ -16,15 +16,15 @@
                 //print_r($ruta);
 
                 $this->controlador = strtolower(array_shift($ruta));
-                //print $this->controlador;
+                //print "<br>Controlador: ".$this->controlador;
                 $this->metodo = strtolower(array_shift($ruta));
-                //print $this->metodo;
                 if(!$this->metodo)
                 {
                     $this->metodo = "index";
                 }
-                //print $this->metodo;
-                $this->argumento = $ruta;
+                //print "<br>Metodo: ".$this->metodo;
+                $this->argumento = strtolower(array_shift($ruta));
+                //print "<br>Argumento: ".$this->argumento;
             }
         }
 
