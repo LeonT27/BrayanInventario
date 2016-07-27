@@ -43,7 +43,7 @@
             $salida_Mala = "Agregar-Articulo.php";
             $salida_Buena = "Ver-Articulo";
 
-            $this->conexion($query, $array, $salida_Mala, $salida_Buena);
+            $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
 
         }
 
@@ -67,18 +67,19 @@
             $salida_Mala = "Modificar-Articulo.php?ID=".$this->id."";
             $salida_Buena = "Ver-Articulo";
 
-            $this->conexion($query, $array, $salida_Mala, $salida_Buena);
+            $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
         }
 
-        public function borrar($ID)
+        public function borrar()
         {
             $query = "EXEC	[dbo].[ELinar_Articulos]
 		                @ID = ?";
-            $array = array( array(&$ID) );
-            $salida_Mala = "Ver-Articulo.php";
-            $salida_Buena = "Ver-Articulo";
+            $array = array( array(&$this->id) );
+            print $this->id;
+            //$salida_Mala = "/articulos/";
+            //$salida_Buena = "/articulos/";
 
-            $this->conexion($query, $array, $salida_Mala, $salida_Buena);
+            $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
         }
 
         public function ver()

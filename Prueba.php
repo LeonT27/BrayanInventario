@@ -2,10 +2,15 @@
     require_once "Config/Autoload.php";
     Config\Autoload::run();
 
-    $conn = new Model\Login;
+    function xd($id)
+    {
+    $conn = new Model\Conexion;
+    $query = "EXEC	[dbo].[ELinar_Articulos]
+		                @ID = ?";
+    $array = array( array(&$id) );
 
-    $conn->user = "Tolen";
-    $conn->pass = 123456;
-    $conn();
+    $conn($query, $array); 
+    }
 
+    call_user_func_array("xd", array(3));
 

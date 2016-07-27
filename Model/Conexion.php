@@ -14,12 +14,17 @@
             $this->conn = sqlsrv_connect( $this->server_Name, $this->conexion_Info);
         }
 
-        public function __invoke($query, $array, $salida_Mala, $salida_Buena)
+        public function exe($query, $array, $salida_Mala=" ", $salida_Buena=" ")
         {
+            print "ENtro al invoke";
             $stmt = sqlsrv_prepare( $this->conn, $query, $array);
             if( !$stmt ) {
                 echo " in preparing statement .\n".print_r( sqlsrv_errors(), true);
                 //header("location: $salida_Mala"); 
+            }
+            else
+            {
+                echo "SI";
             }
             $stmt = sqlsrv_execute( $stmt );
             if( $stmt == FALSE )  
@@ -29,6 +34,7 @@
             }
             else
             {
+                echo "SI";
                 //header("location: $salida_Buena.php");
             }
         }
@@ -45,7 +51,7 @@
                     $str = 'ID_TipoInventario';
                     break;
                 case '[dbo].[SELECT_Articulos]':
-                    $controlador = 'Articulos';
+                    $controlador = 'articulos';
                     $str = 'ID_Articulos';
                     break;
                 case '[dbo].[SELECT_Almacenes]':
@@ -75,8 +81,8 @@
                         echo "<td>".$dato."</td>";
                     }
                     //Iconos para modificar y borrar
-                    echo "<td><a href='/Controlador$controlador.php?Modificar=si&ID=".$datos->$str."'>Modificar</a></td>";
-                    echo "<td><a href='/Controlador$controlador.php?Eliminar=si&ID=".$datos->$str."'>Borrar</a></td>";
+                    echo "<td><a href='/$controlador/update/".$datos->$str."'>Modificar</a></td>";
+                    echo "<td><a href='/$controlador/delete/".$datos->$str."'>Borrar</a></td>";
                     echo "</tr> ";
                 }
                 echo "</tbody> </table>  </div>";

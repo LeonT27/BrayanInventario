@@ -1,4 +1,4 @@
-<a class="logout" href="Logout.php">Log Out</a>
+<a class="logout" href="/login/out/">Log Out</a>
 <div class="row">
     <nav>
         <ul>

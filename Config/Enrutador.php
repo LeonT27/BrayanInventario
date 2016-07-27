@@ -19,13 +19,14 @@
                 $controlador = new $mostar;
                 if(empty($argumento))
                 {
-                    //print "Sin argumento";
+                    print "Sin argumento";
                     $datos = call_user_func(array($controlador, $metodo));
                 }
                 else
                 {
-                    //print "Con argumento";
-                    $datos = call_user_func_array(array($controlador, $metodo), $argumento);
+                    print "Con argumento<br>";
+                    print $argumento;
+                    call_user_func_array(array($controlador, $metodo), array($argumento));
                 }
             }
 

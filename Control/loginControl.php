@@ -34,7 +34,7 @@
             }
             else 
             {
-                //$_SESSION['Error'] = ' al dejar los campos vacios.'; 
+                $_SESSION['Error'] = ' al dejar los campos vacios.'; 
                 //header("location: /login/");
             }
         }
@@ -42,6 +42,7 @@
         public function out()
         {
             $this->login->logout();
+            header("Location: /login/");
         }
     }
 

@@ -24,7 +24,7 @@
         public function validar()
         {
             $query = "SELECT Usuario FROM [IDInventario].[dbo].[LOGIN] WHERE Usuario = ? AND Password = ? ";
-            print $query;
+            //print $query;
             $array = array(
                     array($this->user),  
                     array($this->pass)
@@ -32,7 +32,7 @@
             $stmt = sqlsrv_query($this->conexion->getConn(), $query, $array);
             if($stmt)
             {
-                echo "SI";
+                //echo "SI";
             }
             else
             {
@@ -43,9 +43,8 @@
 
         public function logout()
         {
-            if(session_destroy()) {
-                header("Location: /login/");
-            }
+            session_destroy();
+            unset($_SESSION['login_user']);
         }
     }
 

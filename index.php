@@ -2,7 +2,8 @@
     session_start();
      
     define('DS', DIRECTORY_SEPARATOR) ;   
-    define ('ROOT', realpath(dirname(__FILE__)) . DS);
+    define('ROOT', realpath(dirname(__FILE__)) . DS);
+    define('URL', "http://localhost:49682/");
 
     require_once "Config/Autoload.php";
     Config\Autoload::run();
@@ -13,5 +14,5 @@
     {
         //print $_SESSION['login_user']; 
         header("location: /articulos/");
-    } 
+    }
 ?>
