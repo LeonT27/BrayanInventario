@@ -9,8 +9,8 @@
 		                @ID = ?";
     $array = array( array(&$id) );
 
-    $conn($query, $array); 
+    $conn->exe($query, $array); 
     }
 
-    call_user_func_array("xd", array(3));
+    call_user_func_array("xd", array(8));
 

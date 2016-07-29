@@ -11,7 +11,7 @@
     </nav>
 </div>
 <?php 
-    $articulos = new Model\Articulos;
+    $articulos = new Model\TipoInventario;
     $articulos->ver();
 ?>
-<a class="boton-a" href="/articulos/add/">+</a>
+<a class="boton-a" href="/tipoinventario/add/">+</a>

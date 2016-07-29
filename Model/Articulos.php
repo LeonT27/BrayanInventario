@@ -40,8 +40,8 @@
                         array(&$this->costo_Unitario),
                         array(&$this->estado)
                       );
-            $salida_Mala = "Agregar-Articulo.php";
-            $salida_Buena = "Ver-Articulo";
+            $salida_Mala = "/articulos/add/";
+            $salida_Buena = "/articulos/";
 
             $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
 
@@ -64,8 +64,8 @@
                         array(&$this->costo_Unitario),
                         array(&$this->estado)
                       );
-            $salida_Mala = "Modificar-Articulo.php?ID=".$this->id."";
-            $salida_Buena = "Ver-Articulo";
+            $salida_Mala = "/articulos/add/";
+            $salida_Buena = "/articulos/";
 
             $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
         }
@@ -75,9 +75,8 @@
             $query = "EXEC	[dbo].[ELinar_Articulos]
 		                @ID = ?";
             $array = array( array(&$this->id) );
-            print $this->id;
-            //$salida_Mala = "/articulos/";
-            //$salida_Buena = "/articulos/";
+            $salida_Mala = "/articulos/";
+            $salida_Buena = "/articulos/";
 
             $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
         }
@@ -85,6 +84,20 @@
         public function ver()
         {
             $this->conexion->ver_Tabla('[dbo].[SELECT_Articulos]');
+        }
+
+        public function listar_Registro()
+        {
+            $query = "SELECT * FROM Articulos WHERE ID_Articulos =".$this->id;
+            $resultado = $this->conexion->consulta_Listar($query);
+            return $resultado;
+        }
+
+        public function listar()
+        {
+            $query = "SELECT * FROM Articulos";
+            $resultado = $this->conexion->consulta_Listar($query);
+            return $resultado;
         }
     }
 

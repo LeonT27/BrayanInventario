@@ -16,26 +16,21 @@
 
         public function exe($query, $array, $salida_Mala=" ", $salida_Buena=" ")
         {
-            print "ENtro al invoke";
             $stmt = sqlsrv_prepare( $this->conn, $query, $array);
-            if( !$stmt ) {
-                echo " in preparing statement .\n".print_r( sqlsrv_errors(), true);
+            if( !$stmt ) 
+            {
+                $_SESSION['Error']=" in preparing statement .\n".print_r( sqlsrv_errors(), true);
                 //header("location: $salida_Mala"); 
             }
-            else
-            {
-                echo "SI";
-            }
-            $stmt = sqlsrv_execute( $stmt );
+            $stmt = sqlsrv_execute($stmt);
             if( $stmt == FALSE )  
             {
-                echo " in executing statement .\n".print_r( sqlsrv_errors(), true);
+                $_SESSION['Error']=" in executing statement .\n".print_r( sqlsrv_errors(), true);
                 //header("location: $salida_Mala");  
             }
             else
             {
-                echo "SI";
-                //header("location: $salida_Buena.php");
+                header("location: $salida_Buena");
             }
         }
 
@@ -47,7 +42,7 @@
         public function ver_Tabla($nomTabla) {
             switch ($nomTabla) {
                 case '[dbo].[SELECT_TipoInventario]':
-                    $controlador = 'TipoInventario';
+                    $controlador = 'tipoinventario';
                     $str = 'ID_TipoInventario';
                     break;
                 case '[dbo].[SELECT_Articulos]':
@@ -55,11 +50,11 @@
                     $str = 'ID_Articulos';
                     break;
                 case '[dbo].[SELECT_Almacenes]':
-                    $controlador = 'Almacenes';
+                    $controlador = 'almacenes';
                     $str = 'ID_Almacen';
                     break;
                 case '[dbo].[SELECT_Transacion]':
-                    $controlador = 'Transacion';
+                    $controlador = 'transaciones';
                     $str = 'ID_Transacion';
                     break;
             }
@@ -89,6 +84,12 @@
             } else {
                 echo "No hay folma";
             }
+        }
+
+        public function consulta_Listar($query)
+        {
+            $resultado = sqlsrv_query( $this->conn, $query);
+            return $resultado;
         }
     }
 ?>

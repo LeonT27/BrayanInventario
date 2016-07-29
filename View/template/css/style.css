@@ -93,6 +93,21 @@ h2 {
     box-shadow: 5px 5px 2px #a2a2a2;
 }
 
+.articulos-form{
+    width: 40%;
+    margin: 60px auto;
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    background-color: #bdc3c7;
+    box-shadow: 5px 5px 2px #a2a2a2;
+}
+
+.articulos-form input, select {
+    
+}
+
 input, select {
     margin-bottom: 15px;
     padding-left: 12px;
@@ -106,7 +121,7 @@ input[type=submit]:hover, input[type=submit]:active {
 
 .msg {
     margin: auto;
-    margin-top: 75px;
+    margin-top: 50px;
     border: 1px solid transparent;
     border-radius: 16px;
     background: #555;
@@ -142,7 +157,7 @@ nav {
 li {
     display: inline-block;
     text-decoration: none;
-    padding-right: 30px;
+    padding-right: 20px;
     font-size: 120%;
 }
 
@@ -180,3 +195,20 @@ li a:hover, li a:active {
     transition: color 0.2s, background-color 0.2s;
 }
 
+.boton-b{
+    float: left;
+    position: relative;
+    left: 500px;
+    width: 40px;
+    height: auto;
+    border-radius: 16px;
+    padding: 20px;
+    padding-left: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #e67e22;
+    color: white;
+    margin-bottom: 0px;
+    transition: color 0.2s, background-color 0.2s;
+}
