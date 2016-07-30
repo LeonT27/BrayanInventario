@@ -31,7 +31,7 @@
         {
             if($_POST)
             {
-                if(!empty($_POST['descripcion']) && !empty($_POST['existencias']) && !empty($_POST['costo']))
+                if(!empty($_POST['descripcion']) && !empty($_POST['costo']))
                 {
                     $this->articulos->descripcion = $_POST['descripcion'];
                     $this->articulos->existencias = $_POST['existencias'];
@@ -55,7 +55,7 @@
             $datos = $this->articulos->listar_Registro();
             if($_POST)
             {
-                if(!empty($_POST['descripcion']) && !empty($_POST['existencias']) && !empty($_POST['costo']))
+                if(!empty($_POST['descripcion']) && !empty($_POST['costo']))
                 {
                     $this->articulos->descripcion = $_POST['descripcion'];
                     $this->articulos->existencias = $_POST['existencias'];

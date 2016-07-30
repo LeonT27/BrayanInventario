@@ -39,7 +39,7 @@
             return $this->conn;
         }
 
-        public function ver_Tabla($nomTabla) {
+        public function ver_Tabla($nomTabla, $mostrar=TRUE) {
             switch ($nomTabla) {
                 case '[dbo].[SELECT_TipoInventario]':
                     $controlador = 'tipoinventario';
@@ -53,22 +53,29 @@
                     $controlador = 'almacenes';
                     $str = 'ID_Almacen';
                     break;
-                case '[dbo].[SELECT_Transacion]':
-                    $controlador = 'transaciones';
-                    $str = 'ID_Transacion';
-                    break;
             }
             echo "<div class='row'><table id='table_id'> <thead> <tr>";
             $SP_Ver = "EXEC $nomTabla";
             $resultado = sqlsrv_query( $this->conn, $SP_Ver);
             $i = 0;
+            if(sqlsrv_has_rows($resultado) === FALSE)
+            {
+                echo "<div class='msg msg-alerta'>
+                    <p><span>Alerta</span> tabla sin datos</p>
+                </div>";
+            }
+            else
+            {
             if ($resultado) {
                 $metaData = sqlsrv_field_metadata($resultado);
                 for ($i = 0; $i < count($metaData); $i++) {
                     echo "<th>".$metaData[$i]["Name"] . "</th>";
                 }
-                echo "<th>&nbsp;</th>";
-                echo "<th>&nbsp;</th>";
+                if($mostrar==TRUE)
+                {
+                    echo "<th>&nbsp;</th>";
+                    echo "<th>&nbsp;</th>";
+                }
                 echo "</tr> </thead>";
                 echo "<tbody> <tr>";
                 while ($datos = sqlsrv_fetch_object( $resultado)) {
@@ -76,13 +83,17 @@
                         echo "<td>".$dato."</td>";
                     }
                     //Iconos para modificar y borrar
-                    echo "<td><a href='/$controlador/update/".$datos->$str."'>Modificar</a></td>";
-                    echo "<td><a href='/$controlador/delete/".$datos->$str."'>Borrar</a></td>";
+                    if($mostrar==TRUE)
+                    {
+                        echo "<td><a href='/$controlador/update/".$datos->$str."'>Modificar</a></td>";
+                        echo "<td><a href='/$controlador/delete/".$datos->$str."'>Borrar</a></td>";
+                    }
                     echo "</tr> ";
                 }
                 echo "</tbody> </table>  </div>";
             } else {
                 echo "No hay folma";
+            }
             }
         }
 

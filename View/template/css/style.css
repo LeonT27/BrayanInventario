@@ -4,6 +4,7 @@
 }
 html, body {
     color: #2f2f2f;
+    background-color: #ecf0f1;
     font-size: 20px;
     font-weight: 300;
     text-rendering: optimizeLegibility;
@@ -139,6 +140,10 @@ input[type=submit]:hover, input[type=submit]:active {
     width: 50%;
 }
 
+.msg-alerta {
+    background-color: #f39c12;
+}
+
 .visi {
     visibility: hidden;
 }
@@ -180,9 +185,7 @@ li a:hover, li a:active {
 .boton-a{
     text-align: center;
     float: right;
-    position: relative;
-    top: -50px;
-    right: 150px;
+    margin-right: 150px;
     width: 1%;
     border-radius: 16px;
     padding: 20px;
@@ -197,8 +200,7 @@ li a:hover, li a:active {
 
 .boton-b{
     float: left;
-    position: relative;
-    left: 500px;
+    margin-left: 500px;
     width: 40px;
     height: auto;
     border-radius: 16px;

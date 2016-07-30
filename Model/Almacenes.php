@@ -41,14 +41,14 @@
         {
             $query = "EXEC	[dbo].[Modificar_Almacenes]
 		                    @IDAlmacenes = ?,
-		                    @Descripcion = ?',
+		                    @Descripcion = ?,
 		                    @Estado = ?";
             $array = array(
                        array(&$this->id),
                        array(&$this->descripcion),
                        array(&$this->estado)
                      );
-            $salida_Mala = "/almacenes/add/";
+            $salida_Mala = "/almacenes/update/";
             $salida_Buena = "/almacenes/";
 
             $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
@@ -60,7 +60,7 @@
 		                        @IDAlmacenes = ?";
             $array = array( array(&$this->id) );
             //$salida_Mala = "/tipoinventario/update/";
-            $salida_Buena = "/tipoinventario/";
+            $salida_Buena = "/almacenes/";
             $this->conexion->exe($query, $array, $salida_Mala, $salida_Buena);
         }
 
