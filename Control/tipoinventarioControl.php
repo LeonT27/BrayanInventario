@@ -8,6 +8,7 @@
 
         public function __construct()
         {
+            self::access();
             $this->tipo = new Tipo;
         }
 
@@ -55,6 +56,14 @@
                 }
             }
             return $datos;
+        }
+
+        private function access()
+        {
+            if(empty($_SESSION['login_user']))
+            {
+                header("location: /login/");
+            }
         }
     }
 

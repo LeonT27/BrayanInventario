@@ -10,6 +10,7 @@
 
         public function __construct()
         {
+            self::access();
             $this->transaciones = new Transaciones;
             $this->articulo = new Articulos;
         }
@@ -33,6 +34,14 @@
             }
             $datos = $this->articulo->listar();
             return $datos;
+        }
+
+        private function access()
+        {
+            if(empty($_SESSION['login_user']))
+            {
+                header("location: /login/");
+            }
         }
     }
 

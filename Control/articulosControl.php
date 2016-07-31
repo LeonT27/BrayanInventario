@@ -11,6 +11,7 @@
 
         public function __construct()
         {
+            self::access();
             $this->articulos = new Articulos();
             $this->tipo = new Tipo();
         }
@@ -78,6 +79,14 @@
         {
             $resultado = $this->tipo->listar();
             return $resultado;
+        }
+
+        private function access()
+        {
+            if(empty($_SESSION['login_user']))
+            {
+                header("location: /login/");
+            }
         }
 
     }
