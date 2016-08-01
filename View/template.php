@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="/View/template/css/grid.css">
         <link rel="stylesheet" type="text/css" href="/View/template/css/ionicons.min.css">
         <link rel="stylesheet" type="text/css" href="/View/template/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/View/template/css/queries.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

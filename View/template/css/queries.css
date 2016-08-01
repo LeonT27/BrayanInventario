@@ -1,0 +1,25 @@
+@media only screen and (max-width: 552px) {
+    .thu-real {
+        font-size: 300%;
+        border-bottom: 2px solid #e67e22;
+    }
+
+    .login-form {
+        width: 330px;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .thu-real {
+        border-bottom: 2px solid #e67e22;
+    }
+
+    .login-form {
+        width: 220px;
+    }
+
+    .msg{
+        width: 350px;
+    }
+}

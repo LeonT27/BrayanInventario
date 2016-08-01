@@ -1,16 +1,21 @@
 <?php
-    require_once "Config/Autoload.php";
-    Config\Autoload::run();
+    require_once "Model/AsientoContable.php";
 
-    function xd($id)
-    {
-    $conn = new Model\Conexion;
-    $query = "EXEC	[dbo].[ELinar_Articulos]
-		                @ID = ?";
-    $array = array( array(&$id) );
+    $obj = new Model\AsientoContable();
 
-    $conn->exe($query, $array); 
-    }
+    /**$obj->description = "";
+    $obj->origin = "1";
+    $obj->typeMovement = "1";
+    $obj->created = "2016-08-1";
+    $obj->amount = 500;
+    $obj->accountId = 1;
+    **/
+    $array = $obj->http_Get('http://contability-app.azurewebsites.net/api/Accounts');
+    //var_dump($array);
 
-    call_user_func_array("xd", array(8));
+    echo '<pre>';
+    print_r ($array);
+    echo '</pre>';
 
+    echo $array[error][message];
+?>
