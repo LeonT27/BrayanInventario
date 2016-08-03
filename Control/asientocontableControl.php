@@ -24,17 +24,25 @@
         {
             if($_POST)
             {
-                $this->asiento->description = $_POST['descripcion'];
-                $this->asiento->origin = $_POST['tipoinventario'];
-                $this->asiento->typeMovement = $_POST['movimiento'];
-                $this->asiento->created = $_POST['fecha'];
-                $this->asiento->amount = $_POST['monto'];
-                $this->asiento->accountId = $_POST['cuenta'];
-
-                if($this->asiento->http_Post('http://contability-app.azurewebsites.net/api/AccountEntries')==200)
+                if(!empty($_POST['monto']))
                 {
-                    $_SESSION['mensaje'] = "Se registro exitosamente";
+                    $this->asiento->description = $_POST['descripcion'];
+                    $this->asiento->origin = $_POST['tipoinventario'];
+                    $this->asiento->typeMovement = $_POST['movimiento'];
+                    $this->asiento->created = $_POST['fecha'];
+                    $this->asiento->amount = $_POST['monto'];
+                    $this->asiento->accountId = $_POST['cuenta'];
+
+                    if($this->asiento->http_Post('http://contability-app.azurewebsites.net/api/AccountEntries')==200)
+                    {
+                        $_SESSION['mensaje'] = "Se registro exitosamente";
+                    }
                 }
+                else
+                {
+                    $_SESSION['Error'] = ' al dejar el monto vacio.';
+                }
+                
             }
             $datos = $this->tipo->listar();
             return $datos;
