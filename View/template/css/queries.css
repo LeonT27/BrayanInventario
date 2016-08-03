@@ -5,11 +5,7 @@
     }
 
     .login-form {
-        width: 500px;
-    }
-
-    input, select {
-        margin-bottom: 0;
+        width: 330px;
     }
 
 }
@@ -20,10 +16,15 @@
     }
 
     .login-form {
-        width: 500px;
+        width: 220px;
     }
 
     .msg{
         width: 350px;
     }
+
+    input, select {
+        margin-bottom: 0;
+        width: 150px
+        }
 }
