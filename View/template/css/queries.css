@@ -16,7 +16,7 @@
     }
 
     .login-form {
-        width: 220px;
+        width: 230px;
     }
 
     .msg{
@@ -25,6 +25,5 @@
 
     input, select {
         margin-bottom: 0;
-        width: 150px
         }
 }
