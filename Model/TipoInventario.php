@@ -70,7 +70,7 @@
 
         public function listar()
         {
-            $query = "SELECT * FROM Tipos_Inventarios";
+            $query = "SELECT * FROM Tipos_Inventarios WHERE Estado = 1";
             $resultado = $this->conexion->consulta_Listar($query);
             return $resultado;
         }

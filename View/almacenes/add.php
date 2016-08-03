@@ -1,5 +1,5 @@
 <div class="row">
-    <h2>Agregar Tipo Inventario</h2>
+    <h2>Agregar Almacen</h2>
     <div class="msg msg-error visi">
         <p><span>Error</span> <?php echo $_SESSION['Error'];?></p>
     </div>

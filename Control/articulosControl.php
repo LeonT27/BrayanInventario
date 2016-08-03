@@ -25,7 +25,7 @@
         {
             $this->articulos->id = $id;
             $this->articulos->borrar();
-            header("Location: /articulos/");
+            //header("Location: /articulos/");
         }
 
         public function add()

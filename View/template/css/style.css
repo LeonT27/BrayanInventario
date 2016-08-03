@@ -148,6 +148,7 @@ input[type=submit]:hover, input[type=submit]:active {
 
 .msg-alerta {
     background-color: #f39c12;
+    width: 815px;
 }
 
 .visi {
@@ -159,7 +160,7 @@ nav {
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 16px;
-    width: 850px;
+    width: 815px;
     margin: 20px auto;
     margin-bottom: 40px;
     
