@@ -8,6 +8,10 @@
         width: 330px;
     }
 
+    input, select {
+        margin-bottom: 0;
+    }
+
 }
 
 @media only screen and (max-width: 480px) {
