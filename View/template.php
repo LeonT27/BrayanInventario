@@ -37,8 +37,6 @@
             <div class="row">
                 <h1 class="thu-real">SISTEMA DE INVENTARIO</h1>
             </div>
-            <a href="/finalinteligencia.pdf">PDF</a>
-
 <?php
         }
 
